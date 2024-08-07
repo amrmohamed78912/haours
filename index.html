@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق حساب ساعات العمل</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>مرحبا بكم في تطبيق</h1>
+        <h2>Hours</h2>
+        <h3>لحساب عدد الساعات</h3>
+        <span class="author">د.عمرو قطقاط</span>
+        <table id="hoursTable">
+            <thead>
+                <tr>
+                    <th>اليوم</th>
+                    <th>وقت الحضور</th>
+                    <th>وقت الانصراف</th>
+                    <th>عدد الساعات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added by JavaScript -->
+            </tbody>
+        </table>
+        <button id="calculateButton">احسب الساعات الكلية</button>
+        <button id="resetButton">إعادة التشغيل</button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+</body>
+</html>
